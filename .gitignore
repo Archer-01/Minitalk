@@ -1,0 +1,9 @@
+a.out
+/client
+/server
+.DS_Store
+.vscode
+.*.swp
+**/*.o
+*.dSYM
+*.a
