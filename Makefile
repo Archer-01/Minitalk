@@ -83,6 +83,8 @@ CLIENT_OBJS	:= $(CLIENT_SRCS:.c=.o)
 SERVER_NAME	:= server
 SERVER_MAIN	:= server.c
 SERVER_SRCS	:=
+SERVER_SRCS	:= ft_install_signal.c \
+				ft_print_pid.c
 SERVER_OBJS	:= $(SERVER_SRCS:.c=.o)
 
 # ****************************** Compiler Options ******************************

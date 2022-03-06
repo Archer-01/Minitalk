@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_print_pid.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhamza <hhamza@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 08:16:24 by hhamza            #+#    #+#             */
-/*   Updated: 2022/03/06 10:51:49 by hhamza           ###   ########.fr       */
+/*   Created: 2022/03/03 10:43:28 by hhamza            #+#    #+#             */
+/*   Updated: 2022/03/06 11:16:57 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int	main(void)
+/**
+ * @brief Print current process's PID (Process IDentifier)
+ */
+void	ft_print_pid(void)
 {
-	ft_print_pid();
-	return (0);
+	pid_t	pid;
+
+	pid = getpid();
+	ft_printf("PID: %i\n", pid);
 }
