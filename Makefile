@@ -84,7 +84,10 @@ SERVER_NAME	:= server
 SERVER_MAIN	:= server.c
 SERVER_SRCS	:=
 SERVER_SRCS	:= ft_install_signal.c \
-				ft_print_pid.c
+				ft_print_pid.c \
+				ft_sigone_handler.c \
+				ft_sigzero_handler.c \
+				ft_update_byte.c
 SERVER_OBJS	:= $(SERVER_SRCS:.c=.o)
 
 # ****************************** Compiler Options ******************************

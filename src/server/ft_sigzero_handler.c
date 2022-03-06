@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_sigzero_handler.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhamza <hhamza@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 08:16:24 by hhamza            #+#    #+#             */
-/*   Updated: 2022/03/06 16:17:50 by hhamza           ###   ########.fr       */
+/*   Created: 2022/03/06 13:22:18 by hhamza            #+#    #+#             */
+/*   Updated: 2022/03/06 15:30:55 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int	main(void)
+/**
+ * @brief SIGZERO handler function
+ *
+ * @param signo: signal number
+ * @param siginfo: additional info on received signal
+ * @param context: unused parameter
+ */
+void	ft_sigzero_handler(int signo, siginfo_t *siginfo, void *context)
 {
-	ft_print_pid();
-	ft_install_signal(SIGZERO, &ft_sigzero_handler);
-	ft_install_signal(SIGONE, &ft_sigone_handler);
-	while (TRUE)
-		pause();
-	return (0);
+	(void) context;
+	if (signo != SIGZERO)
+		return ;
+	ft_update_byte(signo, siginfo->si_pid);
 }
