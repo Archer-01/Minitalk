@@ -8,7 +8,7 @@ LIBS_DIR		:= lib
 LIBFT_DIR		:= $(LIBS_DIR)/libft
 
 # ******************************* General Files ********************************
-HEADERS			:=
+HEADERS			:= minitalk.h
 LIBFT			:= libft.a
 LIBFT_SRCS		:= ft_atoi.c \
 					ft_bzero.c \
@@ -76,7 +76,7 @@ LIBFT_HEADER	:= libft.h
 # ******************************** Client Files ********************************
 CLIENT_NAME	:= client
 CLIENT_MAIN	:= client.c
-CLIENT_SRCS	:=
+CLIENT_SRCS	:= ft_send_byte.c
 CLIENT_OBJS	:= $(CLIENT_SRCS:.c=.o)
 
 # ******************************** Server Files ********************************
