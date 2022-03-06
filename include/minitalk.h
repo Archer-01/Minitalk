@@ -6,7 +6,7 @@
 /*   By: hhamza <hhamza@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 08:24:43 by hhamza            #+#    #+#             */
-/*   Updated: 2022/03/06 15:30:27 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/03/06 20:29:42 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ void	ft_sigone_handler(int signo, siginfo_t *siginfo, void *context);
 // Client-side
 
 t_bool	ft_send_byte(t_byte byte, pid_t server_pid);
+t_bool	ft_check_pid(const char *str);
 
 #endif

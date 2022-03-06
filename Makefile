@@ -76,7 +76,8 @@ LIBFT_HEADER	:= libft.h
 # ******************************** Client Files ********************************
 CLIENT_NAME	:= client
 CLIENT_MAIN	:= client.c
-CLIENT_SRCS	:= ft_send_byte.c
+CLIENT_SRCS	:= ft_check_pid.c \
+				ft_send_byte.c
 CLIENT_OBJS	:= $(CLIENT_SRCS:.c=.o)
 
 # ******************************** Server Files ********************************
