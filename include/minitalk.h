@@ -6,7 +6,7 @@
 /*   By: hhamza <hhamza@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 08:24:43 by hhamza            #+#    #+#             */
-/*   Updated: 2022/03/07 08:03:21 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/03/07 10:34:55 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ typedef char	t_byte;
 void	ft_print_pid(void);
 void	ft_install_signal(int signo, t_sig_handler handler);
 void	ft_update_byte(int signo, int new_sender_pid);
-void	ft_sigzero_handler(int signo, siginfo_t *siginfo, void *context);
+void	ft_sigzero_sigconnreq_handler(int signo, siginfo_t *siginfo, \
+	void *context);
 void	ft_sigone_handler(int signo, siginfo_t *siginfo, void *context);
-void	ft_listen(void);
+void	ft_accept_connection(pid_t client_pid);
 
 // Client-side
 
