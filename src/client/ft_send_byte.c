@@ -6,7 +6,7 @@
 /*   By: hhamza <hhamza@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 10:40:05 by hhamza            #+#    #+#             */
-/*   Updated: 2022/03/06 10:55:33 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/03/07 11:38:45 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_bool	ft_send_byte(t_byte byte, pid_t server_pid)
 			ft_putendl_fd("Error: kill failed", STDERR_FILENO);
 			return (FALSE);
 		}
-		usleep(500);
+		usleep(800);
 		--shift_count;
 	}
 	return (TRUE);

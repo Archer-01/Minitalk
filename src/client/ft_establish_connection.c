@@ -6,7 +6,7 @@
 /*   By: hhamza <hhamza@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 07:40:01 by hhamza            #+#    #+#             */
-/*   Updated: 2022/03/07 08:57:59 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/03/07 11:38:32 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_establish_connection(pid_t server_pid)
 		exit(EXIT_FAILURE);
 	}
 	signal(SIGCONNACCEPT, &ft_sigconnaccept_handler);
-	usleep(500);
+	usleep(800);
 	if (g_response == '\0')
 	{
 		ft_putendl_fd("Error: Server TIMEOUT", STDERR_FILENO);
