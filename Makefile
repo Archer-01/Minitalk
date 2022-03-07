@@ -78,7 +78,8 @@ CLIENT_NAME	:= client
 CLIENT_MAIN	:= client.c
 CLIENT_SRCS	:= ft_check_pid.c \
 				ft_establish_connection.c \
-				ft_send_byte.c
+				ft_send_byte.c \
+				ft_send_message.c
 CLIENT_OBJS	:= $(CLIENT_SRCS:.c=.o)
 
 # ******************************** Server Files ********************************

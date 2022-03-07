@@ -6,7 +6,7 @@
 /*   By: hhamza <hhamza@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 15:09:24 by hhamza            #+#    #+#             */
-/*   Updated: 2022/03/06 16:23:10 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/03/07 14:45:28 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ void	ft_update_byte(int signo, int new_sender_pid)
 	else if (signo == SIGONE)
 		byte = (byte << 1) | 1;
 	++bit_index;
-	if (bit_index == 8)
+	if (bit_index == 8 && byte == '\0')
+		kill(sender_pid, SIGMSGACK);
+	else if (bit_index == 8)
 	{
 		ft_printf("%c", byte);
 		bit_index = 0;

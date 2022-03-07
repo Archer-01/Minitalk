@@ -6,7 +6,7 @@
 /*   By: hhamza <hhamza@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 08:24:43 by hhamza            #+#    #+#             */
-/*   Updated: 2022/03/07 10:34:55 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/03/07 14:55:45 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 # define SIGONE SIGUSR2
 # define SIGCONNREQ SIGUSR1
 # define SIGCONNACCEPT SIGUSR2
+# define SIGMSGACK SIGUSR1
+
+# define GREEN "\e[0;32m"
+# define NC "\e[0m"
 
 typedef void	(*t_sig_handler)(int, siginfo_t *, void *);
 typedef char	t_byte;
@@ -41,5 +45,6 @@ void	ft_accept_connection(pid_t client_pid);
 t_bool	ft_send_byte(t_byte byte, pid_t server_pid);
 t_bool	ft_check_pid(const char *str);
 void	ft_establish_connection(pid_t server_pid);
+void	ft_send_message(const char *str, pid_t server_pid);
 
 #endif
