@@ -6,7 +6,7 @@
 /*   By: hhamza <hhamza@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 08:11:42 by hhamza            #+#    #+#             */
-/*   Updated: 2022/03/06 20:29:42 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/03/07 08:55:00 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	main(int argc, char **argv)
 		ft_putendl_fd("Error: Invalid PID", STDERR_FILENO);
 		exit(EXIT_FAILURE);
 	}
+	ft_establish_connection(server_pid);
 	ft_send_message((const char *) argv[2], server_pid);
 	return (0);
 }

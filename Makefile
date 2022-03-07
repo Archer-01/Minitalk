@@ -77,6 +77,7 @@ LIBFT_HEADER	:= libft.h
 CLIENT_NAME	:= client
 CLIENT_MAIN	:= client.c
 CLIENT_SRCS	:= ft_check_pid.c \
+				ft_establish_connection.c \
 				ft_send_byte.c
 CLIENT_OBJS	:= $(CLIENT_SRCS:.c=.o)
 
@@ -85,6 +86,7 @@ SERVER_NAME	:= server
 SERVER_MAIN	:= server.c
 SERVER_SRCS	:=
 SERVER_SRCS	:= ft_install_signal.c \
+				ft_listen.c \
 				ft_print_pid.c \
 				ft_sigone_handler.c \
 				ft_sigzero_handler.c \
