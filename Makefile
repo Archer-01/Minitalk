@@ -104,46 +104,59 @@ LIBS		:= -L $(LIBFT_DIR) -lft
 RM		:= rm -rf
 MKDIR	:= mkdir -p
 
+# *********************************** Colors ***********************************
+NC		:= '\033[0m'
+GREEN	:= '\033[32m'
+RED		:= '\033[0;31m'
+
 # ********************************** Targets ***********************************
 all: $(CLIENT_NAME) $(SERVER_NAME)
 
 $(CLIENT_NAME): $(addprefix $(OBJS_DIR)/, $(CLIENT_OBJS)) \
 				$(LIBFT_DIR)/$(LIBFT) \
 				$(addprefix $(INCLUDES_DIR)/, $(HEADERS)) $(CLIENT_MAIN)
-	$(CC) $(CFLAGS) $(INCLUDES) $(LIBS) \
+	@echo "Compiling" $(GREEN) $(CLIENT_NAME) $(NC)
+	@$(CC) $(CFLAGS) $(INCLUDES) $(LIBS) \
 		$(addprefix $(OBJS_DIR)/, $(CLIENT_OBJS)) \
 		$(CLIENT_MAIN) -o $(CLIENT_NAME)
 
 $(SERVER_NAME): $(addprefix $(OBJS_DIR)/, $(SERVER_OBJS)) \
 				$(LIBFT_DIR)/$(LIBFT) \
 				$(addprefix $(INCLUDES_DIR)/, $(HEADERS)) $(SERVER_MAIN)
-	$(CC) $(CFLAGS) $(INCLUDES) $(LIBS) \
+	@echo "Compiling" $(GREEN) $(SERVER_NAME) $(NC)
+	@$(CC) $(CFLAGS) $(INCLUDES) $(LIBS) \
 		$(addprefix $(OBJS_DIR)/, $(SERVER_OBJS)) \
 		$(SERVER_MAIN) -o $(SERVER_NAME)
 
 $(LIBFT_DIR)/$(LIBFT): $(LIBFT_DIR)/$(INCLUDES_DIR)/$(LIBFT_HEADER) \
 						$(addprefix $(LIBFT_DIR)/$(SRCS_DIR)/, $(LIBFT_SRCS))
-	make -C $(LIBFT_DIR)
+	@make -C $(LIBFT_DIR)
 
 $(OBJS_DIR)/%.o: $(CLIENT_SRCS_DIR)/%.c \
 					$(addprefix $(INCLUDES_DIR)/, $(HEADERS)) \
 					$(LIBFT_DIR)/$(INCLUDES_DIR)/$(LIBFT_HEADER)
 	@$(MKDIR) $(OBJS_DIR)
-	$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<
+	@echo "Compiling" $(GREEN) $(basename $(shell basename $<)) $(NC)
+	@$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<
 
 $(OBJS_DIR)/%.o: $(SERVER_SRCS_DIR)/%.c \
 					$(addprefix $(INCLUDES_DIR)/, $(HEADERS)) \
 					$(LIBFT_DIR)/$(INCLUDES_DIR)/$(LIBFT_HEADER)
 	@$(MKDIR) $(OBJS_DIR)
-	$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<
+	@echo "Compiling" $(GREEN) $(basename $(shell basename $<)) $(NC)
+	@$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<
 
 clean:
-	make clean -C $(LIBFT_DIR)
-	$(RM) $(OBJS_DIR)
+	@make clean -C $(LIBFT_DIR)
+	@echo "Removing" $(RED) "object files" $(NC)
+	@$(RM) $(OBJS_DIR)
 
 fclean:	clean
-	make fclean -C $(LIBFT_DIR)
-	$(RM) $(CLIENT_NAME) $(SERVER_NAME)
+	@make fclean -C $(LIBFT_DIR)
+	@echo "Removing" $(RED) $(CLIENT_NAME) $(NC)
+	@$(RM) $(CLIENT_NAME)
+	@echo "Removing" $(RED) $(SERVER_NAME) $(NC)
+	@$(RM) $(SERVER_NAME)
 
 re: fclean all
 
