@@ -21,9 +21,9 @@
  */
 void	ft_update_byte(int signo, int new_sender_pid)
 {
-	volatile static pid_t	sender_pid;
-	volatile static t_byte	byte;
-	volatile static int		bit_index;
+	static volatile pid_t	sender_pid;
+	static volatile t_byte	byte;
+	static volatile int		bit_index;
 
 	if (sender_pid == 0)
 		sender_pid = new_sender_pid;
