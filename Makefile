@@ -115,17 +115,17 @@ $(CLIENT_NAME): $(addprefix $(OBJS_DIR)/, $(CLIENT_OBJS)) \
 				$(LIBFT_DIR)/$(LIBFT) \
 				$(addprefix $(INCLUDES_DIR)/, $(HEADERS)) $(CLIENT_MAIN)
 	@echo "Compiling" $(GREEN) $(CLIENT_NAME) $(NC)
-	@$(CC) $(CFLAGS) $(INCLUDES) $(LIBS) \
+	@$(CC) $(CFLAGS) $(INCLUDES) \
 		$(addprefix $(OBJS_DIR)/, $(CLIENT_OBJS)) \
-		$(CLIENT_MAIN) -o $(CLIENT_NAME)
+		$(CLIENT_MAIN) -o $(CLIENT_NAME) $(LIBS)
 
 $(SERVER_NAME): $(addprefix $(OBJS_DIR)/, $(SERVER_OBJS)) \
 				$(LIBFT_DIR)/$(LIBFT) \
 				$(addprefix $(INCLUDES_DIR)/, $(HEADERS)) $(SERVER_MAIN)
 	@echo "Compiling" $(GREEN) $(SERVER_NAME) $(NC)
-	@$(CC) $(CFLAGS) $(INCLUDES) $(LIBS) \
+	@$(CC) $(CFLAGS) $(INCLUDES) \
 		$(addprefix $(OBJS_DIR)/, $(SERVER_OBJS)) \
-		$(SERVER_MAIN) -o $(SERVER_NAME)
+		$(SERVER_MAIN) -o $(SERVER_NAME) $(LIBS)
 
 $(LIBFT_DIR)/$(LIBFT): $(LIBFT_DIR)/$(INCLUDES_DIR)/$(LIBFT_HEADER) \
 						$(addprefix $(LIBFT_DIR)/$(SRCS_DIR)/, $(LIBFT_SRCS))
